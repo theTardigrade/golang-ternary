@@ -26,6 +26,14 @@ func Uint(condition bool, x, y uint) uint {
 	return y
 }
 
+func Time(condition bool, x, y time.Time) time.Time {
+	if condition {
+		return x
+	}
+
+	return y
+}
+
 func Duration(condition bool, x, y time.Duration) time.Duration {
 	if condition {
 		return x

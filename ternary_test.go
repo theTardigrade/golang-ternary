@@ -43,6 +43,19 @@ func TestUint(t *testing.T) {
 	}
 }
 
+func TestTime(t *testing.T) {
+	x := time.Now().UTC()
+	y := x.Add(time.Minute)
+
+	if msg, fail := tests.Message(x, Time(true, x, y)); fail {
+		t.Error(msg)
+	}
+
+	if msg, fail := tests.Message(y, Time(false, x, y)); fail {
+		t.Error(msg)
+	}
+}
+
 func TestDuration(t *testing.T) {
 	x, y := time.Second, time.Minute
 
